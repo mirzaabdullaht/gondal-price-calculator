@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gondal Price Calculator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Gondal Price Calculator</h1>
+        <p class="muted">Calculate total price (Rs.) and estimated weight (Kg) from area in square feet.</p>
+      </header>
+
+      <section class="card">
+        <h2>Sheets</h2>
+
+        <div class="grid">
+          <label class="field">
+            <span class="label">Design</span>
+            <select id="design"></select>
+          </label>
+
+          <label class="field">
+            <span class="label">Type</span>
+            <select id="type"></select>
+          </label>
+
+          <label class="field">
+            <span class="label">Area (Sq Ft)</span>
+            <input id="area" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 250" />
+          </label>
+        </div>
+
+        <div class="summary-row">
+          <div class="pill">
+            <div class="pill-title">Rate</div>
+            <div class="pill-value"><span id="rate">—</span> <span class="muted">Rs./Sft</span></div>
+          </div>
+          <div class="pill">
+            <div class="pill-title">Weight</div>
+            <div class="pill-value"><span id="wPerSft">—</span> <span class="muted">Kg/Sft</span></div>
+          </div>
+          <div class="pill">
+            <div class="pill-title">Sheet Subtotal</div>
+            <div class="pill-value"><span id="sheetSubtotal">0</span> <span class="muted">Rs.</span></div>
+          </div>
+          <div class="pill">
+            <div class="pill-title">Sheet Weight</div>
+            <div class="pill-value"><span id="sheetWeight">0</span> <span class="muted">Kg</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Accessories (Each)</h2>
+
+        <div class="grid accessories">
+          <label class="field">
+            <span class="label">UPVC Screw Cap Set &amp; SDS (Rs. 80)</span>
+            <input id="acc_screwCapSet" type="number" inputmode="numeric" min="0" step="1" value="0" />
+          </label>
+
+          <label class="field">
+            <span class="label">SDS (Rs. 100)</span>
+            <input id="acc_sds" type="number" inputmode="numeric" min="0" step="1" value="0" />
+          </label>
+
+          <label class="field">
+            <span class="label">UPVC Top Ridge (Rs. 3000)</span>
+            <input id="acc_topRidge" type="number" inputmode="numeric" min="0" step="1" value="0" />
+          </label>
+
+          <label class="field">
+            <span class="label">Foam Closure (Rs. 300)</span>
+            <input id="acc_foamClosure" type="number" inputmode="numeric" min="0" step="1" value="0" />
+          </label>
+        </div>
+
+        <div class="summary-row">
+          <div class="pill">
+            <div class="pill-title">Accessories Subtotal</div>
+            <div class="pill-value"><span id="accSubtotal">0</span> <span class="muted">Rs.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card total">
+        <div class="total-grid">
+          <div>
+            <h2>Grand Total</h2>
+            <p class="muted">Sum of sheets + accessories</p>
+          </div>
+          <div class="total-values">
+            <div class="big">
+              <span id="grandTotal">0</span>
+              <span class="muted">Rs.</span>
+            </div>
+            <div class="muted">
+              Estimated total weight: <strong><span id="grandWeight">0</span> Kg</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="resetBtn" class="secondary" type="button">Reset</button>
+        </div>
+      </section>
+
+      <footer class="footer muted">
+        <span>Note: Weight is estimated using Kg/Sft from the provided price list.</span>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
